@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nómades del Futuro — La Guía Definitiva del Caravanero</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tierra: #C4762A;
+    --tierra-dark: #8B4A10;
+    --noche: #0D1117;
+    --carbon: #1A1F28;
+    --humo: #2C3340;
+    --arena: #F5E6C8;
+    --arena-light: #FDF6E9;
+    --verde: #3D6B4F;
+    --verde-claro: #6BAA7C;
+    --cielo: #7BA3C0;
+    --blanco: #FAFAF8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--noche);
+    color: var(--blanco);
+    overflow-x: hidden;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    background: 
+      radial-gradient(ellipse at 70% 30%, rgba(196,118,42,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(61,107,79,0.12) 0%, transparent 50%),
+      linear-gradient(160deg, #0D1117 0%, #141922 50%, #0D1117 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(196,118,42,0.03) 80px, rgba(196,118,42,0.03) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(196,118,42,0.03) 80px, rgba(196,118,42,0.03) 81px);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(196,118,42,0.15);
+    border: 1px solid rgba(196,118,42,0.4);
+    color: var(--tierra);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--arena);
+    animation: fadeDown 0.8s 0.2s ease both;
+    max-width: 900px;
+  }
+
+  .hero-title span {
+    color: var(--tierra);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    color: rgba(245,230,200,0.7);
+    max-width: 600px;
+    margin: 24px auto 0;
+    line-height: 1.7;
+    animation: fadeDown 0.8s 0.4s ease both;
+  }
+
+  .hero-author {
+    margin-top: 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--cielo);
+    text-transform: uppercase;
+    animation: fadeDown 0.8s 0.5s ease both;
+  }
+
+  .hero-cta {
+    margin-top: 48px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeDown 0.8s 0.6s ease both;
+  }
+
+  .btn-primary {
+    background: var(--tierra);
+    color: var(--blanco);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-primary:hover {
+    background: var(--tierra-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(196,118,42,0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--arena);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 36px;
+    border: 1px solid rgba(245,230,200,0.3);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--tierra);
+    color: var(--tierra);
+  }
+
+  .hero-stats {
+    margin-top: 64px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.8s 0.8s ease both;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--tierra);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  .divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(196,118,42,0.3);
+    align-self: center;
+  }
+
+  /* ---- SCROLL INDICATOR ---- */
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.4;
+    animation: pulse 2s infinite;
+  }
+
+  .scroll-hint span {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--arena);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--tierra), transparent);
+    animation: extendLine 2s infinite;
+  }
+
+  /* ---- SECTION BASE ---- */
+  section {
+    padding: 100px 24px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tierra);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--arena);
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--tierra);
+  }
+
+  /* ---- BOOK SUMMARY ---- */
+  .summary {
+    background: var(--carbon);
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .summary-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .summary-text p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.75);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .summary-text p strong {
+    color: var(--arena);
+    font-weight: 600;
+  }
+
+  .chapters-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .chapter-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid rgba(196,118,42,0.15);
+    background: rgba(13,17,23,0.5);
+    transition: border-color 0.3s;
+  }
+
+  .chapter-item:hover {
+    border-color: rgba(196,118,42,0.4);
+  }
+
+  .chapter-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--tierra);
+    opacity: 0.6;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .chapter-info h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--arena);
+    margin-bottom: 4px;
+  }
+
+  .chapter-info p {
+    font-size: 0.85rem;
+    color: rgba(245,230,200,0.5);
+    line-height: 1.5;
+  }
+
+  /* ---- AVATARES ---- */
+  .avatars {
+    background: var(--noche);
+  }
+
+  .avatars-intro {
+    max-width: 600px;
+    margin-bottom: 64px;
+  }
+
+  .avatars-intro p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.65);
+    line-height: 1.8;
+  }
+
+  .avatars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .avatars-grid { grid-template-columns: 1fr; }
+  }
+
+  .avatar-card {
+    background: var(--carbon);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .avatar-card:hover {
+    transform: translateY(-4px);
+    z-index: 1;
+  }
+
+  .avatar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent, var(--tierra));
+  }
+
+  .avatar-card.verde { --accent: var(--verde-claro); }
+  .avatar-card.cielo { --accent: var(--cielo); }
+  .avatar-card.gold { --accent: #D4A853; }
+  .avatar-card.tierra { --accent: var(--tierra); }
+
+  .avatar-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .avatar-type {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent, var(--tierra));
+    margin-bottom: 8px;
+  }
+
+  .avatar-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--arena);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .avatar-pain {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(245,230,200,0.5);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    border-left: 2px solid var(--accent, var(--tierra));
+    padding-left: 16px;
+  }
+
+  .avatar-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.7);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .avatar-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .avatar-benefits li {
+    font-size: 0.9rem;
+    color: rgba(245,230,200,0.8);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .avatar-benefits li::before {
+    content: '→';
+    color: var(--accent, var(--tierra));
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  /* ---- QUE INCLUYE ---- */
+  .includes {
+    background: var(--humo);
+  }
+
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 900px) {
+    .includes-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .includes-grid { grid-template-columns: 1fr; }
+  }
+
+  .include-card {
+    padding: 32px 28px;
+    background: var(--carbon);
+    border-bottom: 2px solid rgba(196,118,42,0.2);
+    transition: border-color 0.3s;
+  }
+
+  .include-card:hover {
+    border-color: var(--tierra);
+  }
+
+  .include-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .include-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--arena);
+    margin-bottom: 10px;
+  }
+
+  .include-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.55);
+    line-height: 1.7;
+  }
+
+  /* ---- TESTIMONIAL / QUOTE ---- */
+  .quote-section {
+    background: linear-gradient(135deg, var(--tierra-dark) 0%, var(--verde) 100%);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-style: italic;
+    color: var(--arena);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,230,200,0.6);
+  }
+
+  /* ---- PRECIO ---- */
+  .pricing {
+    background: var(--noche);
+    text-align: center;
+  }
+
+  .pricing-card {
+    display: inline-block;
+    background: var(--carbon);
+    border: 1px solid rgba(196,118,42,0.3);
+    padding: 60px 80px;
+    max-width: 560px;
+    width: 100%;
+    position: relative;
+    margin: 48px auto 0;
+  }
+
+  @media (max-width: 600px) {
+    .pricing-card { padding: 40px 24px; }
+  }
+
+  .pricing-card::before {
+    content: 'OFERTA DE LANZAMIENTO';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--tierra);
+    color: var(--blanco);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 4px 20px;
+    white-space: nowrap;
+  }
+
+  .price-old {
+    font-size: 1.1rem;
+    color: rgba(245,230,200,0.35);
+    text-decoration: line-through;
+    margin-bottom: 8px;
+  }
+
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--tierra);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-currency {
+    font-size: 1.8rem;
+    vertical-align: top;
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  .price-period {
+    font-size: 0.9rem;
+    color: rgba(245,230,200,0.4);
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .price-includes {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .price-includes li {
+    font-size: 0.95rem;
+    color: rgba(245,230,200,0.75);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .price-includes li::before {
+    content: '✓';
+    color: var(--verde-claro);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .guarantee {
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: rgba(245,230,200,0.4);
+    font-style: italic;
+  }
+
+  /* ---- AUTHOR ---- */
+  .author-section {
+    background: var(--carbon);
+  }
+
+  .author-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .author-grid { grid-template-columns: 1fr; }
+  }
+
+  .author-visual {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--tierra-dark), var(--humo));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .author-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--tierra);
+  }
+
+  .author-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--arena);
+    margin-bottom: 8px;
+  }
+
+  .author-role {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--tierra);
+    margin-bottom: 24px;
+  }
+
+  .author-bio {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.7);
+    line-height: 1.9;
+  }
+
+  .author-bio strong {
+    color: var(--arena);
+    font-weight: 600;
+  }
+
+  /* ---- FINAL CTA ---- */
+  .final-cta {
+    background: linear-gradient(160deg, #0D1117 0%, #141922 100%);
+    text-align: center;
+    padding: 120px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(196,118,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--arena);
+    max-width: 700px;
+    margin: 0 auto 24px;
+    line-height: 1.15;
+  }
+
+  .final-title em {
+    color: var(--tierra);
+    font-style: italic;
+  }
+
+  .final-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.55);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: #080B10;
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(245,230,200,0.25);
+    font-weight: 300;
+  }
+
+  footer a {
+    color: rgba(245,230,200,0.4);
+    text-decoration: none;
+  }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes extendLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🌎 Colección Continentes — América</div>
+  <h1 class="hero-title">Nómades del <span>Futuro</span></h1>
+  <p class="hero-subtitle">La guía definitiva para iniciar, sobrevivir y prosperar en la vida caravanera. Todo lo que necesitás saber para vivir sobre ruedas y ganar dinero mientras recorrés el continente.</p>
+  <p class="hero-author">por Vic Valles — Viajero permanente • +50 años de experiencia</p>
+
+  <div class="hero-cta">
+    <a href="#precio" class="btn-primary">Quiero el libro →</a>
+    <a href="#avatares" class="btn-secondary">¿Para quién es?</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">188</div>
+      <div class="stat-label">Páginas</div>
+    </div>
+    <div class="divider"></div>
+    <div class="stat">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="divider"></div>
+    <div class="stat">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Propuestas de negocio</div>
+    </div>
+    <div class="divider"></div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Kilómetros posibles</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Seguir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- RESUMEN DEL LIBRO -->
+<section class="summary">
+  <div class="container">
+    <div class="summary-grid">
+      <div class="summary-text reveal">
+        <p class="section-label">De qué trata</p>
+        <h2 class="section-title">Una guía <em>real</em>,<br>escrita desde el camino</h2>
+        <p><strong>Nómades del Futuro</strong> no es un libro de inspiración vacía. Es el manual de campo que Vic Valles —viajero permanente desde los 16 años, diseñador y constructor de su propio motorhome— escribió para quien ya tomó la decisión o está a punto de hacerlo.</p>
+        <p>Desde cómo elegir y diseñar el vehículo ideal para tu situación personal, hasta cómo financiar el viaje completo con <strong>más de 30 propuestas de monetización concretas</strong> que podés ejecutar desde el propio motorhome.</p>
+        <p>El libro también cubre seguridad vial, mantenimiento, estrategias de redes sociales para caravaneros, gestión de imprevistos y una guía de destinos en América con cientos de atracciones seleccionadas en Argentina, México, EE.UU., Centroamérica y el Caribe.</p>
+        <p>La promesa es concreta: <strong>pasar de gastar dinero en una casa fija, a ganar dinero en movimiento.</strong></p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <ul class="chapters-list">
+          <li class="chapter-item">
+            <span class="chapter-num">I</span>
+            <div class="chapter-info">
+              <h4>Elección del motorhome</h4>
+              <p>Tipologías, diseño interior, materiales y distribución eficiente del espacio.</p>
+            </div>
+          </li>
+          <li class="chapter-item">
+            <span class="chapter-num">II</span>
+            <div class="chapter-info">
+              <h4>Energía y agua</h4>
+              <p>Sistemas solares, tanques, reciclaje y autosuficiencia hídrica y eléctrica.</p>
+            </div>
+          </li>
+          <li class="chapter-item">
+            <span class="chapter-num">III</span>
+            <div class="chapter-info">
+              <h4>Mantenimiento y reparaciones</h4>
+              <p>Kit básico de herramientas, diagnóstico preventivo y emergencias mecánicas.</p>
+            </div>
+          </li>
+          <li class="chapter-item">
+            <span class="chapter-num">IV</span>
+            <div class="chapter-info">
+              <h4>Seguridad vial</h4>
+              <p>Manejo de vehículos grandes, estacionamiento, situaciones extremas y accidentes reales.</p>
+            </div>
+          </li>
+          <li class="chapter-item">
+            <span class="chapter-num">V–VII</span>
+            <div class="chapter-info">
+              <h4>Monetización del motorhome</h4>
+              <p>+30 propuestas de negocio desde el vehículo: gastronomía, turismo, servicios, teletrabajo y más.</p>
+            </div>
+          </li>
+          <li class="chapter-item">
+            <span class="chapter-num">VIII</span>
+            <div class="chapter-info">
+              <h4>Redes sociales y contenido</h4>
+              <p>Cómo monetizar el viaje a través de Instagram, YouTube y TikTok, modo amateur y profesional.</p>
+            </div>
+          </li>
+          <li class="chapter-item">
+            <span class="chapter-num">IX–X</span>
+            <div class="chapter-info">
+              <h4>Guía de destinos en América</h4>
+              <p>Argentina, México, Centroamérica, Caribe y EE.UU.: ciudades, rutas y atracciones seleccionadas.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <p class="quote-text">"Aquella primera forma de movilizarse y obtener el sustento es la que le da al hombre su esencia de ser humano, de ser libre."</p>
+  <p class="quote-author">— Vic Valles, prólogo de Nómades del Futuro</p>
+</div>
+
+<!-- AVATARES -->
+<section class="avatars" id="avatares">
+  <div class="container">
+    <div class="avatars-intro reveal">
+      <p class="section-label">¿Es para vos?</p>
+      <h2 class="section-title">Cuatro personas que <em>necesitan</em> este libro</h2>
+      <p>No importa en qué punto de la decisión estés. Este libro fue escrito para quien ya siente que la vida convencional le quedó chica.</p>
+    </div>
+
+    <div class="avatars-grid reveal">
+
+      <!-- Avatar 1 -->
+      <div class="avatar-card verde">
+        <span class="avatar-icon">🧳</span>
+        <p class="avatar-type">Avatar 01</p>
+        <h3 class="avatar-name">El jubilado con ganas de mundo</h3>
+        <p class="avatar-pain">"Toda la vida trabajé. Ahora quiero ver lo que no vi. Pero no sé por dónde empezar."</p>
+        <p class="avatar-desc">Tenés tiempo, tenés algo de ahorro y tenés las ganas. Lo que no tenés es el mapa. Este libro te da exactamente eso: cómo elegir el vehículo correcto para tu cuerpo y tu presupuesto, cómo prepararte para los imprevistos y cómo hacer que el viaje se financie solo para que el ahorro dure más.</p>
+        <ul class="avatar-benefits">
+          <li>Qué tipo de motorhome conviene según la edad y el cuerpo</li>
+          <li>Cómo gestionar la salud y emergencias en ruta</li>
+          <li>Propuestas de ingreso pasivo para financiar el viaje</li>
+          <li>Guía de 100+ destinos seguros y accesibles en América</li>
+        </ul>
+      </div>
+
+      <!-- Avatar 2 -->
+      <div class="avatar-card cielo">
+        <span class="avatar-icon">💻</span>
+        <p class="avatar-type">Avatar 02</p>
+        <h3 class="avatar-name">El nómada digital en transición</h3>
+        <p class="avatar-pain">"Trabajo remoto desde hace dos años. La idea de hacer esto desde un motorhome me ronda la cabeza todo el tiempo."</p>
+        <p class="avatar-desc">Ya sabés lo que es trabajar desde cualquier lugar. Ahora querés llevar eso a otro nivel: que el motorhome sea tu oficina, tu hogar y tu medio de transporte al mismo tiempo. Este libro te muestra cómo optimizar el espacio para trabajar, conectarte y generar ingresos extra usando el vehículo como activo.</p>
+        <ul class="avatar-benefits">
+          <li>Cómo diseñar el espacio de trabajo dentro del motorhome</li>
+          <li>Sistemas de energía solar para laptops y equipos</li>
+          <li>Monetización via redes + servicios digitales desde el MH</li>
+          <li>Cómo documentar el viaje y construir audiencia en paralelo</li>
+        </ul>
+      </div>
+
+      <!-- Avatar 3 -->
+      <div class="avatar-card gold">
+        <span class="avatar-icon">👨‍👩‍👧</span>
+        <p class="avatar-type">Avatar 03</p>
+        <h3 class="avatar-name">La familia que quiere escapar de la hipoteca</h3>
+        <p class="avatar-pain">"La casa nos tiene atados. Cada mes el mismo ciclo. Queremos otra cosa para nuestros hijos, pero parece imposible."</p>
+        <p class="avatar-desc">La hipoteca es una trampa bien diseñada. Vic Valles lo dice sin rodeos: mantener un techo fijo te esclaviza. Este libro propone algo diferente: convertir el motorhome en un activo familiar que genera ingresos, educa a los chicos con el mundo real y libera a la familia del ciclo gasto-trabajo-gasto.</p>
+        <ul class="avatar-benefits">
+          <li>Modelos de motorhome desmontable para familias</li>
+          <li>Cómo distribuir roles en el viaje (trabajo + cuidado)</li>
+          <li>Propuestas gastronómicas y de servicios para ganar en ruta</li>
+          <li>Rutas y destinos ideales para viajes en familia por América</li>
+        </ul>
+      </div>
+
+      <!-- Avatar 4 -->
+      <div class="avatar-card tierra">
+        <span class="avatar-icon">🔧</span>
+        <p class="avatar-type">Avatar 04</p>
+        <h3 class="avatar-name">El emprendedor que ya tiene el vehículo pero no el plan</h3>
+        <p class="avatar-pain">"Tengo la camioneta, tengo las ganas. Me falta saber cómo organizarlo todo para que realmente funcione."</p>
+        <p class="avatar-desc">El vehículo ya lo tenés. Lo que necesitás es el sistema: cómo adaptarlo, cómo equiparlo, cómo usarlo para generar ingresos reales y cómo evitar los errores que arruinan el viaje (o el negocio) en el primer mes. Este libro te da el plano completo del caravanero profesional.</p>
+        <ul class="avatar-benefits">
+          <li>Cómo construir o adaptar un MH sobre pick up o camioneta</li>
+          <li>Checklist completo de equipamiento y mantenimiento</li>
+          <li>+30 modelos de negocio desde el MH ya probados</li>
+          <li>Seguridad, seguros y logística para el viajero permanente</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section class="includes">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Contenido</p>
+      <h2 class="section-title">Todo lo que <em>encontrás</em> adentro</h2>
+    </div>
+    <div class="includes-grid">
+      <div class="include-card reveal reveal-delay-1">
+        <div class="include-icon">🏗️</div>
+        <h4 class="include-title">Diseño y construcción</h4>
+        <p class="include-desc">Guía paso a paso para diseñar o adaptar tu motorhome, con opciones para todos los presupuestos y vehículos.</p>
+      </div>
+      <div class="include-card reveal reveal-delay-2">
+        <div class="include-icon">⚡</div>
+        <h4 class="include-title">Energía solar y agua</h4>
+        <p class="include-desc">Sistemas de autosuficiencia energética e hídrica. Paneles solares, baterías, tanques y reciclaje.</p>
+      </div>
+      <div class="include-card reveal reveal-delay-3">
+        <div class="include-icon">💰</div>
+        <h4 class="include-title">+30 modelos de negocio</h4>
+        <p class="include-desc">Desde food truck y servicios locales hasta alquiler del MH, turismo temático y monetización digital.</p>
+      </div>
+      <div class="include-card reveal reveal-delay-1">
+        <div class="include-icon">📱</div>
+        <h4 class="include-title">Redes sociales para caravaneros</h4>
+        <p class="include-desc">Estrategia completa para documentar el viaje y convertirlo en fuente de ingresos a través de contenido.</p>
+      </div>
+      <div class="include-card reveal reveal-delay-2">
+        <div class="include-icon">🛡️</div>
+        <h4 class="include-title">Seguridad y emergencias</h4>
+        <p class="include-desc">Situaciones reales vividas por el autor: tormentas, accidentes, robos y cómo salir de ellos.</p>
+      </div>
+      <div class="include-card reveal reveal-delay-3">
+        <div class="include-icon">🗺️</div>
+        <h4 class="include-title">Guía de destinos en América</h4>
+        <p class="include-desc">Argentina, México, EE.UU., Caribe y Centroamérica: cientos de atracciones organizadas por ciudad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOR -->
+<section class="author-section">
+  <div class="container">
+    <div class="author-grid reveal">
+      <div class="author-visual">🧭</div>
+      <div>
+        <p class="section-label">El autor</p>
+        <h3 class="author-name">Vic Valles</h3>
+        <p class="author-role">Diseñador • Viajero permanente • Constructor de motorhomes</p>
+        <p class="author-bio">
+          Vic Valles partió a los 16 años y <strong>nunca más paró</strong>. Con más de cincuenta años recorriendo el mundo en los más diversos vehículos, acumula una experiencia que pocos pueden igualar: no solo como viajero, sino como diseñador proyectista que construyó su propio motorhome con sus propias manos sobre una pick up doble cabina.<br><br>
+          Su experiencia profesional incluye <strong>más de 50 años en ventas y trabajos diversos alrededor del planeta</strong>, lo que le permitió probar, fallar y perfeccionar cada una de las estrategias de monetización que comparte en este libro. No teoriza: documenta lo que vivió.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="pricing" id="precio">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Conseguí el libro</p>
+      <h2 class="section-title">Una inversión que se <em>paga sola</em> en la primera parada</h2>
+    </div>
+
+    <div class="pricing-card reveal">
+      <p class="price-old">USD $29.99</p>
+      <p class="price-main"><span class="price-currency">$</span>9<span style="font-size:2rem">.99</span></p>
+      <p class="price-period">Pago único • PDF descargable al instante</p>
+
+      <ul class="price-includes">
+        <li>188 páginas de guía práctica y accionable</li>
+        <li>+30 modelos de negocio para monetizar desde el MH</li>
+        <li>Guía completa de destinos en América</li>
+        <li>Capítulo de redes sociales y monetización digital</li>
+        <li>Acceso inmediato en cualquier dispositivo</li>
+        <li>También disponible en Amazon (versión impresa)</li>
+      </ul>
+
+      <a href="https://www.amazon.com/-/es/VICTOR-VALLES-ebook/dp/B0BZ165HNJ" target="_blank" class="btn-primary" style="display:block; text-align:center; width:100%; clip-path:none;">
+        Conseguir en Amazon →
+      </a>
+
+      <p class="guarantee">✦ Si en 7 días no encontrás valor, te devolvemos el dinero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="final-title">El camino ya<br>está <em>ahí afuera</em></h2>
+  <p class="final-subtitle">Solo falta que te subas. Este libro te da todo lo que necesitás para que ese primer paso no sea un salto al vacío.</p>
+  <a href="https://www.amazon.com/-/es/VICTOR-VALLES-ebook/dp/B0BZ165HNJ" target="_blank" class="btn-primary">Empezar el viaje →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Vic Valles — Fortune Ediciones &nbsp;|&nbsp; <a href="#">Términos</a> &nbsp;|&nbsp; <a href="#">Contacto</a></p>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
